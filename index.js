@@ -17,7 +17,7 @@ load({
 const fooStructArrayType = arrayConstructor({
   type: DataType.StructArray,
   structItemType: fooStructType,
-  ffiTypeTag: DataType.StructArray,
+  ffiTypeTag: DataType.StackArray,
   length: 1,
 });
 const fooStructArrayValue = [fooStructValue, fooStructValue, fooStructValue];
