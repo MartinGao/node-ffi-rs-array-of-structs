@@ -1,0 +1,15 @@
+{
+  "name": "ffi-rs-array-of-structs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "RUST_BACKTRACE=full node index.js",
+    "build:c": "gcc -shared -fPIC -o libfoo.so foo.c"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ffi-rs": "^1.2.4"
+  }
+}
