@@ -3,7 +3,7 @@ const { open, load, define, createPointer, arrayConstructor, funcConstructor, un
 const libtiraysdkDynamicLib = './libfoo.so';
 open({ library: 'libfoo', path: libtiraysdkDynamicLib });
 
-const fooStructType = { ValueA: DataType.I32, ValueB: DataType.I32 };
+const fooStructType = { ValueA: DataType.I32, ValueB: DataType.I32, ffiTypeTag: DataType.StackStruct };
 const fooStructValue = { ValueA: 10, ValueB: 20 };
 
 load({
