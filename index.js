@@ -3,21 +3,22 @@ const { open, load, define, createPointer, arrayConstructor, funcConstructor, un
 const libtiraysdkDynamicLib = './libfoo.so';
 open({ library: 'libfoo', path: libtiraysdkDynamicLib });
 
-const fooStructType = { ValueA: DataType.I32, ValueB: DataType.I32, ffiTypeTag: DataType.StackStruct };
-const fooStructValue = { ValueA: 10, ValueB: 20 };
+const fooStructTypeInSingle = { ValueA: DataType.I32, ValueB: DataType.I32 };
+const fooStructTypeInMulti = { ValueA: DataType.I32, ValueB: DataType.I32, ffiTypeTag: DataType.StackStruct };
+
+const fooStructValue = { ValueA: 11, ValueB: 21 };
 
 load({
   library: 'libfoo',
   funcName: 'SingleStruct',
   retType: DataType.I32,
-  paramsType: [fooStructType],
+  paramsType: [fooStructTypeInSingle],
   paramsValue: [fooStructValue],
 });
 
 const fooStructArrayType = arrayConstructor({
   type: DataType.StructArray,
-  structItemType: fooStructType,
-  ffiTypeTag: DataType.StackArray,
+  structItemType: fooStructTypeInMulti,
   length: 1,
 });
 const fooStructArrayValue = [fooStructValue, fooStructValue, fooStructValue];
